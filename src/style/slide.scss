@@ -1,0 +1,51 @@
+@import "./variables.scss";
+
+.Slide{
+    border: 1px solid black;
+    max-width: 900px;
+    margin: auto;
+    padding: $grid-gutter;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+
+    .slideFooter{
+        display: flex;
+        justify-content: center;
+        margin-top: $grid-gutter;
+
+        a{
+            margin: 0 $grid-gutter;
+        }
+    }
+
+    .Question{
+        margin-bottom: $grid-gutter / 2;
+        h2{
+            margin-bottom: 10px;
+        }
+        p{
+            margin-top: 0;
+        }
+    }
+
+    .answers{
+        display: flex;
+        margin-top: $grid-gutter / 2;
+        justify-content: center;
+
+        .Answer{
+            border: 1px solid $black;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: .25s;
+
+            &:hover{
+                background: beige;
+            }
+        }
+    }
+}
