@@ -1,6 +1,7 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
 import Slide from './components/slide';
+import Results from './components/results';
 import questions from './data/questions'
 import { QuizProvider } from './quiz-context';
 
@@ -42,7 +43,10 @@ function App() {
   return (
     <div className="App">
       <QuizProvider value={context}>
-        {questions.map((question, i) => <Slide question={question} index={i} key={i} />)}
+        {context.currentSlide < questions.length
+          ? questions.map((question, i) => <Slide question={question} index={i} key={i} />)
+          : <Results />
+        }
         <div className="reset" onClick={reset}>Reset</div>
       </QuizProvider>
     </div>

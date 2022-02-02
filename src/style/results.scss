@@ -1,0 +1,9 @@
+@import './variables.scss';
+
+.Results{
+    padding: $grid-gutter;
+    
+    .answers{
+        padding: $grid-gutter 0;
+    }
+}
