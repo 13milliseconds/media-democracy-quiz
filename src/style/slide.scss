@@ -1,9 +1,6 @@
 @import "./variables.scss";
 
 .Slide{
-    border: 1px solid black;
-    max-width: 900px;
-    margin: auto;
     padding: $grid-gutter;
     display: none;
 
@@ -18,6 +15,11 @@
 
         a{
             margin: 0 $grid-gutter;
+            transition: .25s;
+
+            &.disabled{
+                opacity: .5;
+            }
         }
     }
 
@@ -45,6 +47,11 @@
 
             &:hover{
                 background: beige;
+            }
+            
+            &.selected{
+                background: green;
+                color: $white; 
             }
         }
     }

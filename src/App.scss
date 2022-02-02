@@ -1,0 +1,15 @@
+.App {
+  border: 1px solid black;
+  max-width: 900px;
+  min-height: 500px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+
+  .reset{
+    position: absolute;
+    z-index: 99;
+    top: 10px;
+    right: 10px;
+  }
+}

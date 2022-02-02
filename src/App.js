@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { useState, useEffect } from 'react';
 import Slide from './components/slide';
 import questions from './data/questions'
@@ -9,7 +9,9 @@ const functionTemplate = () => {}
 function App() {
   let quizDefault = {
     updateSlide: functionTemplate,
-    currentSlide: 0
+    updateAnswers: functionTemplate,
+    currentSlide: 0,
+    answers: []
   }
 
   const [context, setContext] = useState(quizDefault)
@@ -25,12 +27,24 @@ function App() {
       })
     }
   }, [context?.updateSlide])
+  
+  // Update Answers
+  useEffect(() => {
+    if (context?.updateAnswers === functionTemplate) {
+      updateContext({
+        updateAnswers: value => updateContext({ answers: value }),
+      })
+    }
+  }, [context?.updateAnswers])
+
+  const reset = () => updateContext(quizDefault)
 
   return (
     <div className="App">
       <QuizProvider value={context}>
-          {questions.map((question, i) => <Slide question={question} index={i} key={i} />)}
-        </QuizProvider>
+        {questions.map((question, i) => <Slide question={question} index={i} key={i} />)}
+        <div className="reset" onClick={reset}>Reset</div>
+      </QuizProvider>
     </div>
   );
 }
