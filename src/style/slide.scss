@@ -13,7 +13,7 @@
         justify-content: center;
         margin-top: $grid-gutter;
 
-        a{
+        button{
             margin: 0 $grid-gutter;
             transition: .25s;
 
@@ -30,6 +30,15 @@
         }
         p{
             margin-top: 0;
+        }
+
+        .options{
+            display: flex;
+            justify-content: space-between;
+
+            .option{
+                flex: 0 0 300px;
+            }
         }
     }
 

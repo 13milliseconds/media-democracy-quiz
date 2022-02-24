@@ -4,6 +4,14 @@ import Answer from "./answer";
 import "../style/slide.scss"
 import QuizContext from "../quiz-context";
 
+let answerText = [
+    'Strongly describes my opinion',
+    'Somewhat describes my opinion',
+    'Neutral',
+    'Somewhat describes my opinion',
+    'Strongly describes my opinion'
+]
+
 function Slide({ question, index }) {
     const { currentSlide, updateSlide, updateAnswers, answers }= useContext(QuizContext);
 
@@ -14,33 +22,24 @@ function Slide({ question, index }) {
         updateAnswers(newAnswers);
     }
 
-    //Next Slide
-    const nextSlide = () => { 
-        // TODO: Check that answer is selected
-
-        //TODO: Save answer
-
-        //TODO: Check that there is more question
-        updateSlide(index + 1);
-    }
   return (
-      <div className={currentSlide == index ? "Slide active" : "Slide"}>
+      <div className={currentSlide === index ? "Slide active" : "Slide"}>
         <Question question={question} />
         <div className="answers">
-              {question.answers.map((answer, i) => <Answer
+              {answerText.map((answer, i) => <Answer
                   key={i}
                   onClick={() => selectAnswer(i)}
-                  data={answer}
-                  selected={answers[index] == i}
+                  text={answer}
+                  selected={answers[index] === i}
               />)}
           </div>
           <footer className="slideFooter">
               {index > 0 &&
-                  <a className="previous" onClick={()=>updateSlide(index - 1)}>Previous</a>
+                  <button className="previous" onClick={()=>updateSlide(index - 1)}>Previous</button>
               }
               { answers[index] !== undefined ?
-                  <a className="next" onClick={nextSlide}>Next</a>
-                  : <a className="next disabled">Next</a>
+                  <button className="next" onClick={() => updateSlide(index + 1)}>Next</button>
+                  : <button className="next disabled">Next</button>
               }
           </footer>
     </div>
