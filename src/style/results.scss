@@ -1,9 +1,16 @@
 @import './variables.scss';
 
 .Results{
+    text-align: left;
     padding: $grid-gutter;
     
     .answers{
         padding: $grid-gutter 0;
+    }
+
+    .graphs{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
     }
 }

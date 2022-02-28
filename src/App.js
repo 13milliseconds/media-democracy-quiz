@@ -42,7 +42,7 @@ function App() {
 
   const reset = () => {
     updateContext(quizDefault)
-    setResult([0,0,0,0,0,0])
+    setResult([0, 0, 0, 0, 0, 0])
   }
 
   //Update result
@@ -58,7 +58,7 @@ function App() {
     });
     console.log(newResult);
     setResult(newResult)
-  }, [context]); 
+  }, [context]);
 
   return (
     <div className="App">
@@ -67,9 +67,11 @@ function App() {
           ? <Intro />
           : context.currentSlide < questions.length
             ? questions.map((question, i) => <Slide question={question} index={i} key={i} />)
-            : <Results answersResult={result}/>
+            : <Results answersResult={result} />
         }
-        <div className="reset" onClick={reset}>Reset</div>
+        {context.currentSlide >= 0 &&
+          < div className="reset" onClick={reset}>Reset</div>
+        }
       </QuizProvider>
     </div>
   );
