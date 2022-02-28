@@ -3,6 +3,8 @@ import Question from "./question";
 import Answer from "./answer";
 import "../style/slide.scss"
 import QuizContext from "../quiz-context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 let answerText = [
     'Strongly describes my opinion',
@@ -35,12 +37,14 @@ function Slide({ question, index }) {
           </div>
           <footer className="slideFooter">
               {index > 0 &&
-                  <button className="previous" onClick={()=>updateSlide(index - 1)}>Previous</button>
+                  <button className="previous" onClick={()=>updateSlide(index - 1)}><FontAwesomeIcon icon={faArrowLeft} /> Previous</button>
               }
-              { answers[index] !== undefined ?
-                  <button className="next" onClick={() => updateSlide(index + 1)}>Next</button>
-                  : <button className="next disabled">Next</button>
-              }
+              
+              <button
+                  className={answers[index] !== undefined ? "next" : "next disabled"}
+                  onClick={() => answers[index] !== undefined && updateSlide(index + 1)}>
+                  Next <FontAwesomeIcon icon={faArrowRight} />
+              </button>
           </footer>
     </div>
   );

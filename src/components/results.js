@@ -1,6 +1,8 @@
 import results from '../data/results'
 import "../style/results.scss"
 import { VictoryPie, VictoryLabel } from 'victory';
+import { FacebookShareButton, TwitterShareButton } from "react-share";
+
 
 function Results({ answersResult }) {
   const max = Math.max(...answersResult);
@@ -35,6 +37,15 @@ function Results({ answersResult }) {
       <h3>{result.text}</h3>
       <div className="intro" dangerouslySetInnerHTML={{ __html: result.content }}></div>
 
+      <div className="share">
+        <FacebookShareButton url="https://13milliseconds.com" >
+          <button>Share on Facebook</button>
+        </FacebookShareButton>
+        <TwitterShareButton url="https://13milliseconds.com" >
+          <button>Share on Twitter</button>
+        </TwitterShareButton>
+      </div>
+
       <section className="data">
         <h2>Americans in this segment</h2>
         <ul>
@@ -55,23 +66,23 @@ function Results({ answersResult }) {
           </div>
           <div className="gender">
           <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+              colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
               data={genderData}
-              width="300"
+              width={300}
               />
           </div>
           <div className="age">
           <VictoryPie
               colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
               data={ageData}
-              width="300"
+              width={300}
               />
           </div>
           <div className="race">
           <VictoryPie
               colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
               data={raceData}
-              width="300"
+              width={300}
               />
           </div>
         </div>
@@ -82,7 +93,6 @@ function Results({ answersResult }) {
           </div>
           <footer className="resultsFooter">
               <p>More info in the footer</p>
-              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noreferrer"><button>Share your results</button></a>
           </footer>
     </div>
   );

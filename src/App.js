@@ -5,6 +5,8 @@ import Intro from './components/intro';
 import Results from './components/results';
 import questions from './data/questions'
 import { QuizProvider } from './quiz-context';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 const functionTemplate = () => {}
 
@@ -70,7 +72,7 @@ function App() {
             : <Results answersResult={result} />
         }
         {context.currentSlide >= 0 &&
-          < div className="reset" onClick={reset}>Reset</div>
+          < div className="reset" onClick={reset}><FontAwesomeIcon icon={faRotateLeft} /> Start over</div>
         }
       </QuizProvider>
     </div>
