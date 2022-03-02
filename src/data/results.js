@@ -1,6 +1,7 @@
 const results = [
     {
         text: "The Individualists",
+        percent: 19,
         content: "The 19% of Americans who fall into this segment support individual responsibility for content online above all, and when forced to choose between social media company moderation or government regulation, they choose moderation. In all areas, they are most concerned about protecting free expression and preventing censorship, though they do express some concern about the harms of anonymity and lean toward proof of self-identification online. They see social media as having an impact on politics but do not think tech companies should take a stance on political or social issues. ",
         facts: [
             "Live mostly in a small town or suburban area",
@@ -17,6 +18,7 @@ const results = [
     },
     {
         text: "The Traditionalists",
+        percent: 9,
         content: "The 9% of people who fall into this segment do not support government regulation but do support some moderation by social media companies and individual responsibility for what is posted online. They are concerned about protecting free expression but also express some concern about hurtful discourse online and support proof of self-identification on social media. They believe social media has an impact on politics but do not think major tech companies should take a stand on political and social issues.",
         facts: [
             "Live mostly in a small town or suburban area, but also highest rural",
@@ -33,6 +35,7 @@ const results = [
     },
     {
         text: "The Unfazed Digital Natives",
+        percent: 19,
         content: "The 19% of Americans who fall into this segment do not support government regulation but favor individual responsibility and social media companies moderating some content on their platforms. They recognize the harms of online content, the importance of free expression and lean toward protecting anonymity online. They believe social media impacts politics but prefer that tech companies not take a stand on political and social issues. ",
         facts: [
             "Live mostly in suburbs or small towns, but also second highest urban",
@@ -49,6 +52,7 @@ const results = [
     },
     {
         text: "The Unplugged and Ambivalent",
+        percent: 4,
         content: "<p>Only about 4% of Americans fall into this segment, who hold the most mixed and inconsistent attitudes about internet regulation. They believe everyone should take some responsibility for regulating online content — government, companies and individuals. They simultaneously express concern about hurtful content online and the importance of free expression and support protecting anonymity online — all while recognizing its potential for harm. They are the only cluster that believes social media does not have an impact on politics yet supports major technology companies taking a position on political and social issues.</p>",
         facts: [
             "Live mostly in a small town or suburban area",
@@ -65,6 +69,7 @@ const results = [
     },
     {
         text: "The Concerned Spectactor",
+        percent: 19,
         content: "The 19% of Americans who make up The Concerned Spectators segment support some government regulation but prefer that social media companies do more to moderate content on their platforms. They lean toward weighing the potential harms of online content and anonymity as being more important than protecting free expression online. They believe social media has an impact on politics but do not think major tech companies should take a stand on political and social issues. ",
         facts: [
             "Live mostly in a small town or suburban area",
@@ -81,6 +86,7 @@ const results = [
     },
     {
         text: "The Reformers",
+        percent: 30,
         content: "The 30% of Americans who fall into this segment are aligned in their high support of intervention in digital spaces. They lean toward government regulation and social media company moderation of content over individual responsibility for what is posted online. They view counteracting the potential harms of online content and anonymity as more important than protecting free expression or privacy. They believe social media has an impact on politics and think tech companies should take a stand on political and social issues.",
         facts: [
             "Live mostly in urban or suburban areas",

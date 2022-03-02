@@ -4,11 +4,18 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: lightgrey;
+    background-color: $white;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    
+    .introWrap{
+        background-color: $lightblue;
+        padding: $grid-gutter;
+        width: 100%;
+        max-width: 600px;
+    }
 
     h2{
         margin-top: 0;

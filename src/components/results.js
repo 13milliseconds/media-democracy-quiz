@@ -31,69 +31,30 @@ function Results({ answersResult }) {
     {x: "Other", y: 0},
   ];
 
-  return (
-      <div className="Results">
-          <h2>Results</h2>
-      <h3>{result.text}</h3>
-      <div className="intro" dangerouslySetInnerHTML={{ __html: result.content }}></div>
+  //log the result
+  answersResult.map((answer, i) => console.log(`${i} => ${answer}`))
 
-      <div className="share">
-        <FacebookShareButton url="https://13milliseconds.com" >
-          <button>Share on Facebook</button>
-        </FacebookShareButton>
-        <TwitterShareButton url="https://13milliseconds.com" >
-          <button>Share on Twitter</button>
-        </TwitterShareButton>
+  return (
+    <div className="Results">
+      <div className="result-wrap">
+      <div className="result-content">
+        <h4>You are part of:</h4>
+        <h2>{result.text}</h2>
+        <h3>{ result.percent }% of Americans</h3>
+          <div className="intro" dangerouslySetInnerHTML={{ __html: result.content }}></div>
+          <a className="button" target="_blank" href="https://knightfoundation.org/">Read the Report</a>
       </div>
 
-      <section className="data">
-        <h2>Americans in this segment</h2>
-        <ul>
-          {result.facts.map((fact, i) => <li key={i} className="fact">{ fact }</li>)}
-        </ul>
-        <div className="graphs">
-          <div className="party">
-          <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-              data={partyData}
-              labelComponent={<VictoryLabel renderInPortal/>}
-              width={300}
-              animate={{
-                duration: 2000,
-                onLoad: { duration: 1000 }
-              }}
-              />
-          </div>
-          <div className="gender">
-          <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
-              data={genderData}
-              width={300}
-              />
-          </div>
-          <div className="age">
-          <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-              data={ageData}
-              width={300}
-              />
-          </div>
-          <div className="race">
-          <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-              data={raceData}
-              width={300}
-              />
-          </div>
-        </div>
-      </section>
-
-      <div className="answers">
-              {answersResult.map((answer, i) => console.log(`${i} => ${answer}`))}
-          </div>
-          <footer className="resultsFooter">
-              <p>More info in the footer</p>
-          </footer>
+        <div className="result-social">
+          <h3>Share your results</h3>
+        <FacebookShareButton url="https://13milliseconds.com" >
+          <button>Facebook</button>
+        </FacebookShareButton>
+        <TwitterShareButton url="https://13milliseconds.com" >
+          <button>Twitter</button>
+        </TwitterShareButton>
+      </div>
+      </div>
     </div>
   );
 }

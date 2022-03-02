@@ -3,31 +3,68 @@
 .Slide{
     padding: $grid-gutter;
     display: none;
+    background-color: $lightblue;
+    min-height: 100%;
 
     &.active{
         display: block;
     }
 
+    .progress{
+        text-align: left;
+        margin-bottom: $grid-gutter / 2;
+
+    .progressBar{
+        background-color: $white;
+        height: 5px;
+        width: 100%;
+        position: relative;
+        background-color: $lightgrey;
+        margin-bottom: 10px;
+
+        .progressBarInner{
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: $black;
+            height: 100%;
+        }
+    }
+    }
+
     .slideFooter{
         display: flex;
+        flex-flow: column;
         justify-content: center;
-        margin-top: $grid-gutter;
+        align-items: center;
+        max-width: 100px;
+        margin: $grid-gutter auto 0;
 
         button{
-            margin: 0 $grid-gutter;
+            margin-bottom: 10px;
             transition: .25s;
 
             &.disabled{
                 opacity: .5;
             }
         }
+
+        a{
+            color: $grey;
+            text-decoration: none;
+        }
     }
 
     .Question{
         margin-bottom: $grid-gutter / 2;
+
         h2{
+            font-size: 1.3em;
             margin-bottom: 10px;
+            max-width: 500px;
+            margin: 0 auto 50px;
         }
+
         p{
             margin-top: 0;
         }
@@ -38,6 +75,11 @@
 
             .option{
                 flex: 0 0 300px;
+                text-align: left;
+
+                &:last-child{
+                    text-align: right;
+                }
             }
         }
     }
@@ -45,11 +87,12 @@
     .answers{
         display: flex;
         margin-top: $grid-gutter / 2;
-        justify-content: center;
+        justify-content: space-between;
 
         .Answer{
-            border: 1px solid $black;
-            padding: 10px;
+            flex: 1;
+            background-color: $white;
+            padding: 15px 10px;
             margin: 5px;
             cursor: pointer;
             transition: .25s;

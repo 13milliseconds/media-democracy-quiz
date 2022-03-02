@@ -2,15 +2,45 @@
 
 .Results{
     text-align: left;
-    padding: $grid-gutter;
+    padding: $grid-gutter 0;
+    flex: 1;
     
-    .answers{
-        padding: $grid-gutter 0;
-    }
-
-    .graphs{
+    .result-wrap{
         display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: space-between;
+
+        .result-content{
+            margin-right: $grid-gutter;
+            max-width: 500px;
+
+            h4{
+                text-transform: uppercase;
+                margin-bottom: 0;
+                font-weight: 400;
+            }
+            
+            h2{
+                margin: 0;
+            }
+            
+            h3{
+                margin-top: 0;
+                font-weight: 400;
+            }
+        }
+        
+        .result-social{
+            h3{
+                font-size: .8em;
+                text-transform: uppercase;
+                margin-top: 0;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            button{
+                display: block;
+            }
+        }
     }
 }

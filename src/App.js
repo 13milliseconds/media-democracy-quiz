@@ -5,15 +5,12 @@ import Intro from './components/intro';
 import Results from './components/results';
 import questions from './data/questions'
 import { QuizProvider } from './quiz-context';
-import {Helmet} from "react-helmet";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
 const functionTemplate = () => {}
 
 function App() {
-  const windowUrl = window.location.search;
-  const params = new URLSearchParams(windowUrl);
   let quizDefault = {
     updateSlide: functionTemplate,
     updateAnswers: functionTemplate,
@@ -66,15 +63,10 @@ function App() {
   return (
     <div className="App">
       <QuizProvider value={context}>
-        <Helmet>
-            <meta charSet="utf-8" />
-          <title>My Title {params.get('result')}</title>
-            <link rel="canonical" href="http://mysite.com/example" />
-        </Helmet>
         {context.currentSlide === -1
           ? <Intro />
           : context.currentSlide < questions.length
-            ? questions.map((question, i) => <Slide question={question} index={i} key={i} />)
+            ? questions.map((question, i) => <Slide question={question} qNumber={questions.length} index={i} key={i} />)
             : <Results answersResult={result} />
         }
         {context.currentSlide >= 0 &&

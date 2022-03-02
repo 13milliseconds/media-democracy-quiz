@@ -7,14 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 let answerText = [
-    'Strongly describes my opinion',
-    'Somewhat describes my opinion',
+    'Fully Agree',
+    'Somewhat Agree',
     'Neutral',
-    'Somewhat describes my opinion',
-    'Strongly describes my opinion'
+    'Somewhat Agree',
+    'Fully Agree'
 ]
 
-function Slide({ question, index }) {
+function Slide({ question, index, qNumber }) {
     const { currentSlide, updateSlide, updateAnswers, answers }= useContext(QuizContext);
 
     //Answer Selected
@@ -26,6 +26,12 @@ function Slide({ question, index }) {
 
   return (
       <div className={currentSlide === index ? "Slide active" : "Slide"}>
+          <div className="progress">
+              <div className="progressBar">
+                <div className="progressBarInner" style={{width: ( (index + 1) / qNumber * 100) + '%' }}></div>  
+            </div>
+              {`Question ${index + 1}/${qNumber}`}
+        </div>
         <Question question={question} />
         <div className="answers">
               {answerText.map((answer, i) => <Answer
@@ -36,15 +42,15 @@ function Slide({ question, index }) {
               />)}
           </div>
           <footer className="slideFooter">
-              {index > 0 &&
-                  <button className="previous" onClick={()=>updateSlide(index - 1)}><FontAwesomeIcon icon={faArrowLeft} /> Previous</button>
-              }
               
               <button
                   className={answers[index] !== undefined ? "next" : "next disabled"}
                   onClick={() => answers[index] !== undefined && updateSlide(index + 1)}>
-                  Next <FontAwesomeIcon icon={faArrowRight} />
+                  Next
               </button>
+                      {index > 0 &&
+                          <a className="previous" onClick={()=>updateSlide(index - 1)}>Previous</a>
+                      }
           </footer>
     </div>
   );
