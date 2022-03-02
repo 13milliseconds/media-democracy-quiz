@@ -5,6 +5,11 @@
     display: none;
     background-color: $lightblue;
     min-height: 100%;
+    overflow: hidden;
+
+    h2{
+        margin-bottom: $grid-gutter;
+    }
 
     &.active{
         display: block;
@@ -23,6 +28,7 @@
         margin-bottom: 10px;
 
         .progressBarInner{
+            transition: 1s;
             position: absolute;
             left: 0;
             top: 0;
@@ -30,6 +36,28 @@
             height: 100%;
         }
     }
+    }
+
+    .slide-core{
+        animation-duration: .5s;
+        animation-fill-mode: forwards;  
+        animation-timing-function: ease-in-out;
+        
+        &.leaving-next{
+            animation-name: slideoutLeft;
+        }
+        
+        &.coming-next{
+            animation-name: slideinRight;
+        }
+        
+        &.leaving-prev{
+            animation-name: slideoutRight;
+        }
+        
+        &.coming-prev{
+            animation-name: slideinLeft;
+        }
     }
 
     .slideFooter{
@@ -108,3 +136,49 @@
         }
     }
 }
+
+@keyframes slideoutLeft {
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateX(-500px);
+      opacity: 0;
+    }
+  }
+
+@keyframes slideoutRight {
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateX(500px);
+      opacity: 0;
+    }
+  }
+
+
+@keyframes slideinRight {
+    from {
+        transform: translateX(500px);
+        opacity: 0;
+    }
+    
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes slideinLeft {
+    from {
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+  }

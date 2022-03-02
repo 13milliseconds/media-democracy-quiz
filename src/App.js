@@ -66,7 +66,8 @@ function App() {
         {context.currentSlide === -1
           ? <Intro />
           : context.currentSlide < questions.length
-            ? questions.map((question, i) => <Slide question={question} qNumber={questions.length} index={i} key={i} />)
+            //? questions.map((question, i) => <Slide question={question} qNumber={questions.length} index={i} key={i} />)
+            ? <Slide questions={questions} index={context.currentSlide} />
             : <Results answersResult={result} />
         }
         {context.currentSlide >= 0 &&

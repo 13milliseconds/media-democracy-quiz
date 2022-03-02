@@ -1,10 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import Question from "./question";
 import Answer from "./answer";
 import "../style/slide.scss"
 import QuizContext from "../quiz-context";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 let answerText = [
     'Fully Agree',
@@ -14,8 +12,10 @@ let answerText = [
     'Fully Agree'
 ]
 
-function Slide({ question, index, qNumber }) {
-    const { currentSlide, updateSlide, updateAnswers, answers }= useContext(QuizContext);
+function Slide({ questions, index }) {
+    const { currentSlide, updateSlide, updateAnswers, answers } = useContext(QuizContext);
+    const [slideCoreClass, setSlideCoreClass] = useState('')
+    const [progress, setProgress] = useState(0)
 
     //Answer Selected
     const selectAnswer = (i) => {
@@ -24,32 +24,57 @@ function Slide({ question, index, qNumber }) {
         updateAnswers(newAnswers);
     }
 
+    const nextSlide = () => {
+        setSlideCoreClass('leaving-next')
+        setProgress((index + 1) / questions.length * 100 );
+
+        setTimeout(() => {
+            updateSlide(index + 1)
+            setSlideCoreClass('coming-next')
+        }, 500)
+    }
+
+    const prevSlide = () => {
+        setSlideCoreClass('leaving-prev')
+        setProgress((index - 1) / questions.length * 100 );
+
+        setTimeout(() => {
+            updateSlide(index - 1)
+            setSlideCoreClass('coming-prev')
+        }, 500)
+    }
+
   return (
       <div className={currentSlide === index ? "Slide active" : "Slide"}>
           <div className="progress">
               <div className="progressBar">
-                <div className="progressBarInner" style={{width: ( (index + 1) / qNumber * 100) + '%' }}></div>  
+                <div className="progressBarInner" style={{width: progress + '%' }}></div>  
             </div>
-              {`Question ${index + 1}/${qNumber}`}
-        </div>
-        <Question question={question} />
-        <div className="answers">
+              {`Question ${index + 1}/${questions.length}`}
+          </div>
+          <h2>When it comes to users posting and sharing content on social media platform...</h2>
+
+          <div className={`slide-core ${slideCoreClass}`}>
+            <Question question={questions[index]} />
+            <div className="answers">
               {answerText.map((answer, i) => <Answer
                   key={i}
                   onClick={() => selectAnswer(i)}
                   text={answer}
                   selected={answers[index] === i}
               />)}
+              </div>
           </div>
+          
           <footer className="slideFooter">
               
               <button
                   className={answers[index] !== undefined ? "next" : "next disabled"}
-                  onClick={() => answers[index] !== undefined && updateSlide(index + 1)}>
+                  onClick={() => answers[index] !== undefined && nextSlide()}>
                   Next
               </button>
                       {index > 0 &&
-                          <a className="previous" onClick={()=>updateSlide(index - 1)}>Previous</a>
+                          <a className="previous" onClick={()=>prevSlide()}>Previous</a>
                       }
           </footer>
     </div>
