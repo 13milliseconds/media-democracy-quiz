@@ -14,10 +14,25 @@
 
   .reset{
     position: absolute;
+    color: $grey;
     z-index: 99;
     top: 10px;
     right: 10px;
     cursor: pointer;
+    transition: .5s;
+    font-size: .8em;
+    
+    svg{
+      transition: .5s
+    }
+    
+    &:hover{
+      color: $black;
+
+      svg{
+        transform: rotate(-180deg);
+      }
+    }
   }
 }
 

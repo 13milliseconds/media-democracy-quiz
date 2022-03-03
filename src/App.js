@@ -7,6 +7,16 @@ import questions from './data/questions'
 import { QuizProvider } from './quiz-context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import mixpanel from 'mixpanel-browser';
+
+// Tracking
+mixpanel.init('940b60de3f76ca8636ac3832aabdebc8', {
+  debug: true,
+  ignore_dnt: true
+}); 
+mixpanel.track('Open Quiz', {
+  source: window.location
+});
 
 const functionTemplate = () => {}
 

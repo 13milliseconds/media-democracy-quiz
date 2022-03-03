@@ -74,7 +74,7 @@ function Slide({ questions, index }) {
                   Next
               </button>
                       {index > 0 &&
-                          <a className="previous" onClick={()=>prevSlide()}>Previous</a>
+                          <button className="previous" onClick={()=>prevSlide()}>Previous</button>
                       }
           </footer>
     </div>

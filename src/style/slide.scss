@@ -17,7 +17,7 @@
 
     .progress{
         text-align: left;
-        margin-bottom: $grid-gutter / 2;
+        margin-bottom: calc($grid-gutter / 2);
 
     .progressBar{
         background-color: $white;
@@ -69,7 +69,6 @@
         margin: $grid-gutter auto 0;
 
         button{
-            margin-bottom: 10px;
             transition: .25s;
 
             &.disabled{
@@ -77,14 +76,21 @@
             }
         }
 
-        a{
+        .previous{
+            background: transparent;
             color: $grey;
-            text-decoration: none;
+            padding: 0;
+            font-size: .8em;
+            transition: .25s;
+
+            &:hover{
+                color: $black;
+            }
         }
     }
 
     .Question{
-        margin-bottom: $grid-gutter / 2;
+        margin-bottom: calc($grid-gutter / 2);
 
         h2{
             font-size: 1.3em;
@@ -114,7 +120,7 @@
 
     .answers{
         display: flex;
-        margin-top: $grid-gutter / 2;
+        margin-top: calc($grid-gutter / 2);
         justify-content: space-between;
 
         .Answer{
