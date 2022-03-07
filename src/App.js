@@ -14,9 +14,7 @@ mixpanel.init('940b60de3f76ca8636ac3832aabdebc8', {
   debug: true,
   ignore_dnt: true
 }); 
-mixpanel.track('Open Quiz', {
-  source: window.location
-});
+mixpanel.track('Open Quiz', {});
 
 const functionTemplate = () => {}
 
@@ -75,7 +73,7 @@ function App() {
       <QuizProvider value={context}>
         {context.currentSlide === -1
           ? <Intro />
-          : context.currentSlide < questions.length
+          : context.currentSlide < 2 //questions.length
             //? questions.map((question, i) => <Slide question={question} qNumber={questions.length} index={i} key={i} />)
             ? <Slide questions={questions} index={context.currentSlide} />
             : <Results answersResult={result} />

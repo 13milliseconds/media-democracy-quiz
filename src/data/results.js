@@ -3,104 +3,43 @@ const results = [
         text: "The Individualists",
         percent: 19,
         content: "The 19% of Americans who fall into this segment support individual responsibility for content online above all, and when forced to choose between social media company moderation or government regulation, they choose moderation. In all areas, they are most concerned about protecting free expression and preventing censorship, though they do express some concern about the harms of anonymity and lean toward proof of self-identification online. They see social media as having an impact on politics but do not think tech companies should take a stance on political or social issues. ",
-        facts: [
-            "Live mostly in a small town or suburban area",
-            "Second wealthiest: 41% household income $90K+",
-            "Slightly more likely to have participated in civic activity online in the past year"
-        ],
-        data: {
-            party: [6, 52, 33, 9],
-            gender: [35, 65],
-            age: [29, 36, 35],
-            race: [76, 4, 14],
-        },
         link: "",
+        share: "When it comes to regulating harmful online content, I am an Individualist, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public: "
     },
     {
         text: "The Traditionalists",
         percent: 9,
-        content: "The 9% of people who fall into this segment do not support government regulation but do support some moderation by social media companies and individual responsibility for what is posted online. They are concerned about protecting free expression but also express some concern about hurtful discourse online and support proof of self-identification on social media. They believe social media has an impact on politics but do not think major tech companies should take a stand on political and social issues.",
-        facts: [
-            "Live mostly in a small town or suburban area, but also highest rural",
-            "Lowest education: 31% college graduates",
-            "Less active in civic behavior online in the past year ",
-        ],
-        data: {
-            party: [26, 39, 30],
-            gender: [53, 47],
-            age: [18, 39, 44],
-            race: [63, 14, 18],
-        },
+        content: "While The Traditionalists recognize the potential for harm online, they are also wary of government being the arbiter of free expression. This segment tends to take a laissez-faire approach and assign responsibility to individuals and social media companies. They have mostly mixed political affiliations and engage less frequently online.",
         link: "",
+        share:"When it comes to regulating harmful online content, I'm a Traditionalist, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public:"
     },
     {
         text: "The Unfazed Digital Natives",
         percent: 19,
-        content: "The 19% of Americans who fall into this segment do not support government regulation but favor individual responsibility and social media companies moderating some content on their platforms. They recognize the harms of online content, the importance of free expression and lean toward protecting anonymity online. They believe social media impacts politics but prefer that tech companies not take a stand on political and social issues. ",
-        facts: [
-            "Live mostly in suburbs or small towns, but also second highest urban",
-            "Second highest educated: 47% college graduates",
-            "Average participation in civic activities online in the past year",
-        ],
-        data: {
-            party: [45, 22, 28],
-            gender: [52, 48],
-            age: [40, 33, 27],
-            race: [64, 14, 17],
-        },
+        content: "The youngest of the segments, the Unfazed Digital Natives tend to use the internet for entertainment more than news or politics. They are less concerned about the potential harms of content online than most others and favor individual responsibility and a hands-off approach by the government. Nevertheless, they support some degree of content moderation by social media companies.",
         link: "",
+        share: "When it comes to regulating harmful online content, I am Unfazed Digital Native, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public:"
     },
     {
         text: "The Unplugged and Ambivalent",
         percent: 4,
-        content: "<p>Only about 4% of Americans fall into this segment, who hold the most mixed and inconsistent attitudes about internet regulation. They believe everyone should take some responsibility for regulating online content — government, companies and individuals. They simultaneously express concern about hurtful content online and the importance of free expression and support protecting anonymity online — all while recognizing its potential for harm. They are the only cluster that believes social media does not have an impact on politics yet supports major technology companies taking a position on political and social issues.</p>",
-        facts: [
-            "Live mostly in a small town or suburban area",
-            "Second-lowest education: 32% college graduates",
-            "Least active in civic behavior online over the past year",
-        ],
-        data: {
-            party: [34, 35, 24],
-            gender: [53, 47],
-            age: [20, 31, 49],
-            race: [50, 24, 20],
-        },
+        content: "The smallest among the segments, the Unplugged and Ambivalent hold conflicted and contradictory views on who should be responsible for harmful content online. The people in this group tend to be more offline, disconnected from news and mixed in terms of partisan attachments. ",
         link: "",
+        share: "When it comes to regulating harmful online content, I am Unplugged and Ambivalent, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public:"
     },
     {
         text: "The Concerned Spectactor",
         percent: 19,
-        content: "The 19% of Americans who make up The Concerned Spectators segment support some government regulation but prefer that social media companies do more to moderate content on their platforms. They lean toward weighing the potential harms of online content and anonymity as being more important than protecting free expression online. They believe social media has an impact on politics but do not think major tech companies should take a stand on political and social issues. ",
-        facts: [
-            "Live mostly in a small town or suburban area",
-            "44% college graduates",
-            "Least active in civic behavior online in the past year ",
-        ],
-        data: {
-            party: [45, 26, 25],
-            gender: [53, 47],
-            age: [26, 35, 39],
-            race: [69, 11, 16],
-        },
+        content: "The Concerned Spectators are worried about the spread of misinformation and other hurtful content online and how social media companies use their personal data, but they are split on whether government or social media companies should be responsible for moderating content online. They lean slightly Democratic, are less politically active online, tend to be older and consume more traditional network news.",
         link: "",
+        share: "When it comes to regulating harmful online content, I'm a Concerned Spectator, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public:"
     },
     {
         text: "The Reformers",
         percent: 30,
-        content: "The 30% of Americans who fall into this segment are aligned in their high support of intervention in digital spaces. They lean toward government regulation and social media company moderation of content over individual responsibility for what is posted online. They view counteracting the potential harms of online content and anonymity as more important than protecting free expression or privacy. They believe social media has an impact on politics and think tech companies should take a stand on political and social issues.",
-        facts: [
-            "Live mostly in urban or suburban areas",
-            "Wealthiest: 45% household income $90K+",
-            "Highest educated: 62% college graduates",
-            "Slightly more likely to have participated in civic activity online in the past year",
-        ],
-        data: {
-            party: [70,7,19],
-            gender: [59, 41],
-            age: [36, 31, 33],
-            race: [64, 15, 18],
-        },
+        content: "The Reformers tend to favor more intervention by the government and social media companies to address social harms online. They are highly engaged internet users, active consumers of news, tend to be more politically active and tilt toward the Democratic Party.",
         link: "",
+        share: "When it comes to regulating harmful online content, I'm a reformer, according to a @gallup/@knightfdn quiz. Find out how your views match with the American public:",
     }
 ]
 

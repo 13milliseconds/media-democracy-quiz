@@ -3,6 +3,7 @@ import Question from "./question";
 import Answer from "./answer";
 import "../style/slide.scss"
 import QuizContext from "../quiz-context";
+import mixpanel from 'mixpanel-browser';
 
 let answerText = [
     'Fully Agree',
@@ -26,7 +27,12 @@ function Slide({ questions, index }) {
 
     const nextSlide = () => {
         setSlideCoreClass('leaving-next')
-        setProgress((index + 1) / questions.length * 100 );
+        setProgress((index + 1) / questions.length * 100);
+        
+        //Track answer
+        mixpanel.track('Answer Question', {
+            question: index + 1
+          });
 
         setTimeout(() => {
             updateSlide(index + 1)

@@ -1,6 +1,8 @@
+import React, {useEffect} from 'react'
 import results from '../data/results'
 import "../style/results.scss"
 import { FacebookShareButton, TwitterShareButton } from "react-share";
+import mixpanel from 'mixpanel-browser';
 
 
 function Results({ answersResult }) {
@@ -9,7 +11,18 @@ function Results({ answersResult }) {
   const result = results[mostAnswered]
 
   //log the result
-  answersResult.map((answer, i) => console.log(`${i} => ${answer}`))
+  useEffect(() => { 
+    mixpanel.track('Get Result', {
+      result: result.text,
+      answers: answersResult
+    });
+  }, [])
+
+  const trackShare = (platform) => { 
+    mixpanel.track('Shared', {
+      platform: platform
+    });
+  }
 
   return (
     <div className="Results">
@@ -24,11 +37,19 @@ function Results({ answersResult }) {
 
         <div className="result-social">
           <h3>Share your results</h3>
-        <FacebookShareButton url="https://13milliseconds.com" >
-          <button>Facebook</button>
+          <FacebookShareButton
+            url="https://develop.knightfoundation.org/interactive-quiz-test/"
+            beforeOnClick={() => trackShare('facebook')}
+            quote={result.share}
+            >
+          <div className="button">Facebook</div>
         </FacebookShareButton>
-        <TwitterShareButton url="https://13milliseconds.com" >
-          <button>Twitter</button>
+          <TwitterShareButton
+            url="https://develop.knightfoundation.org/interactive-quiz-test/"
+            title={result.share}
+            beforeOnClick={() => trackShare('facebook')}
+          >
+        <div className="button">Twitter</div>
         </TwitterShareButton>
       </div>
       </div>
