@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import Question from "./question";
 import Answer from "./answer";
 import "../style/slide.scss"
 import QuizContext from "../quiz-context";
@@ -61,7 +60,11 @@ function Slide({ questions, index }) {
           <h2>When it comes to users posting and sharing content on social media platform...</h2>
 
           <div className={`slide-core ${slideCoreClass}`}>
-            <Question question={questions[index]} />
+            <div className="options">
+                {questions[index].options && questions[index].options.map((option, i) => { 
+                return <div key={i} className="option">{ option }</div>
+                })}
+            </div>
             <div className="answers">
               {answerText.map((answer, i) => <Answer
                   key={i}
@@ -70,6 +73,9 @@ function Slide({ questions, index }) {
                   selected={answers[index] === i}
               />)}
               </div>
+              <div className="mobile-option">
+                <div className="option">{ questions[index].options[1] }</div>
+            </div>
           </div>
           
           <footer className="slideFooter">

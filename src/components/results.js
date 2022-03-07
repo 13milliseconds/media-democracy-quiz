@@ -24,6 +24,12 @@ function Results({ answersResult }) {
     });
   }
 
+  const trackReport = (platform) => { 
+    mixpanel.track('Shared', {
+      platform: platform
+    });
+  }
+
   return (
     <div className="Results">
       <div className="result-wrap">
@@ -32,7 +38,14 @@ function Results({ answersResult }) {
         <h2>{result.text}</h2>
         <h3>Along with { result.percent }% of the public</h3>
           <div className="intro" dangerouslySetInnerHTML={{ __html: result.content }}></div>
-          <a className="button" target="_blank" rel="noreferrer" href="https://knightfoundation.org/">Read the Report</a>
+          <a className="button"
+            target="_blank"
+            rel="noreferrer"
+            onClick={trackReport}
+            href="https://knightfoundation.org/"
+          >
+            Read the Report
+          </a>
       </div>
 
         <div className="result-social">

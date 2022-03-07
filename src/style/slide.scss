@@ -1,14 +1,20 @@
 @import "./variables.scss";
 
 .Slide{
-    padding: $grid-gutter;
+    padding: $grid-gutter calc($grid-gutter / 2);
     display: none;
     background-color: $lightblue;
     min-height: 100%;
     overflow: hidden;
+    
+    @media (min-width: $breakpoint-tablet) {
+        padding: $grid-gutter;
+    }
 
     h2{
         margin-bottom: $grid-gutter;
+        font-size: 1.2em;
+        line-height: 1.2em;
     }
 
     &.active{
@@ -89,19 +95,6 @@
         }
     }
 
-    .Question{
-        margin-bottom: calc($grid-gutter / 2);
-
-        h2{
-            font-size: 1.3em;
-            margin-bottom: 10px;
-            max-width: 500px;
-            margin: 0 auto 50px;
-        }
-
-        p{
-            margin-top: 0;
-        }
 
         .options{
             display: flex;
@@ -112,16 +105,27 @@
                 text-align: left;
 
                 &:last-child{
+                    display: none;
                     text-align: right;
+
+                    @media (min-width: $breakpoint-tablet) {
+                        display: block;
+                    }
                 }
             }
         }
-    }
+        
+        .mobile-option{
+            margin-top: calc($grid-gutter / 2);
+            text-align: left;
+
+            @media (min-width: $breakpoint-tablet) {
+                display: none;
+            }
+        }
 
     .answers{
-        display: flex;
         margin-top: calc($grid-gutter / 2);
-        justify-content: space-between;
 
         .Answer{
             flex: 1;
@@ -139,6 +143,11 @@
                 background: green;
                 color: $white; 
             }
+        }
+
+        @media (min-width: $breakpoint-tablet) {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
