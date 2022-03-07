@@ -36,7 +36,7 @@ function Slide({ questions, index }) {
         setTimeout(() => {
             updateSlide(index + 1)
             setSlideCoreClass('coming-next')
-        }, 500)
+        }, 250)
     }
 
     const prevSlide = () => {
@@ -46,7 +46,7 @@ function Slide({ questions, index }) {
         setTimeout(() => {
             updateSlide(index - 1)
             setSlideCoreClass('coming-prev')
-        }, 500)
+        }, 250)
     }
 
   return (

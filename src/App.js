@@ -73,7 +73,7 @@ function App() {
       <QuizProvider value={context}>
         {context.currentSlide === -1
           ? <Intro />
-          : context.currentSlide < 2 //questions.length
+          : context.currentSlide < questions.length
             //? questions.map((question, i) => <Slide question={question} qNumber={questions.length} index={i} key={i} />)
             ? <Slide questions={questions} index={context.currentSlide} />
             : <Results answersResult={result} />
