@@ -32,7 +32,10 @@ function Results({ answersResult }) {
       <div className="result-wrap">
       <div className="result-content">
         <h4>You are most aligned with</h4>
-        <h2>{result.text}</h2>
+          <h2>{result.text}</h2>
+          <div className="percentChart">
+            {results.map((result, i) => <div className={mostAnswered == i ? 'active' : ''} key={i} style={{width: result.percent + '%'}}></div>)}
+          </div>
         <h3>Along with { result.percent }% of the public</h3>
           <div className="intro" dangerouslySetInnerHTML={{ __html: result.content }}></div>
           <a className="button"
@@ -41,10 +44,10 @@ function Results({ answersResult }) {
             onClick={trackReport}
             href="https://knightfoundation.org/"
           >
-            Read the full Report
+            Read the full report
           </a>
       </div>
-
+      <div className="sidebar">
         <div className="result-social">
           <h3>Share your results</h3>
           <FacebookShareButton
@@ -61,11 +64,13 @@ function Results({ answersResult }) {
           >
         <div className="button">Twitter</div>
         </TwitterShareButton>
+          </div>
+          <img src={process.env.PUBLIC_URL + '/img/result_illustration.png'} />
+          </div>
       </div>
-      </div>
-      <div className="chart">
+      {/* <div className="chart">
         <img src={process.env.PUBLIC_URL + '/img/groups_chart.jpg'} />
-      </div>
+      </div> */}
     </div>
   );
 }

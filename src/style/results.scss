@@ -2,15 +2,13 @@
 
 .Results{
     text-align: left;
-    padding: calc($grid-gutter / 2) 0;
+    padding: 0;
     flex: 1;
     
-    @media (min-width: $breakpoint-tablet) {
-        padding: $grid-gutter 0;
-
-    }
-    
     .result-wrap{
+        background-color: $black;
+        color: $white;
+        padding: $grid-gutter;
         
         @media (min-width: $breakpoint-tablet) {
             display: flex;
@@ -40,6 +38,71 @@
                 font-weight: 400;
             }
 
+            .percentChart{
+                height: 10px;
+                margin: 10px 0 20px;
+                border-top: 1px solid $grey;
+                padding-top: 10px;
+
+                .active{
+                    position: relative;
+
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        bottom: 50%;
+                        left: 50%;
+                        height: 24px;
+                        width: 1px;
+                        border-left: 1px solid $grey;
+                        z-index: 3;
+                    }
+                    
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        height: 5px;
+                        width: 5px;
+                        border-radius: 5px;
+                        background: $white;
+                        transform: translate(-50%, -50%);
+                        z-index: 3;
+                    }
+                }
+                
+                div{
+                    display: inline-block;
+                    height: 100%;
+                    background: $white;
+
+                    &:nth-child(1){
+                        background: #18586A;
+                    }
+
+                    &:nth-child(2){
+                        background: #4A1C2D;
+                    }
+
+                    &:nth-child(3){
+                        background: #CD5B36;
+                    }
+
+                    &:nth-child(4){
+                        background: #42425B;
+                    }
+
+                    &:nth-child(5){
+                        background: #A4CDC5;
+                    }
+
+                    &:nth-child(6){
+                        background: #1CA4B8;
+                    }
+                }
+            }
+
             .intro{
                 margin-bottom: calc($grid-gutter / 2);
             }
@@ -48,6 +111,7 @@
         .result-social{
             display: flex;
             flex-flow: row wrap;
+            margin-bottom: $grid-gutter;
 
             h3{
                 width: 100%;
@@ -61,20 +125,20 @@
                 display: block;
                 flex: 0 0 45%;
                 min-width: 0;
+                padding: 0;
                 
                 .button{
+                    padding: 0;
                     width: 70%;
                     min-width: 0;
                 }
             }
+        }
+    }
 
-            @media (min-width: $breakpoint-tablet) {
-                display: block;
-
-                button{
-                    width: 100%;
-                }
-            }
+    .sidebar{
+        img{
+            max-width: 100%;
         }
     }
 
