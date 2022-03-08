@@ -22,6 +22,7 @@ function Slide({ questions, index }) {
         let newAnswers = answers;
         newAnswers[index] = i;
         updateAnswers(newAnswers);
+        nextSlide();
     }
 
     const nextSlide = () => {
@@ -78,16 +79,9 @@ function Slide({ questions, index }) {
             </div>
           </div>
           
-          <footer className="slideFooter">
-              
-              <button
-                  className={answers[index] !== undefined ? "next" : "next disabled"}
-                  onClick={() => answers[index] !== undefined && nextSlide()}>
-                  Next
-              </button>
-                      {index > 0 &&
-                          <button className="previous" onClick={()=>prevSlide()}>Previous</button>
-                      }
+          <footer className="slideFooter">  
+            {/* <button className="next" onClick={() => answers[index] !== undefined && nextSlide()}>Next</button> */}
+            {index > 0 && <button className="previous" onClick={()=>prevSlide()}>ᐸ</button>}
           </footer>
     </div>
   );
