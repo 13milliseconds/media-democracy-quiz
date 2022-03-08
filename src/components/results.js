@@ -44,7 +44,7 @@ function Results({ answersResult }) {
             onClick={trackReport}
             href="https://knightfoundation.org/"
           >
-            Read the Report
+            Read the full Report
           </a>
       </div>
 
@@ -65,6 +65,9 @@ function Results({ answersResult }) {
         <div className="button">Twitter</div>
         </TwitterShareButton>
       </div>
+      </div>
+      <div className="chart">
+        <img src={process.env.PUBLIC_URL + '/img/groups_chart.jpg'} />
       </div>
     </div>
   );
