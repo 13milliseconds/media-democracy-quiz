@@ -4,7 +4,6 @@ import "../style/results.scss"
 import { FacebookShareButton, TwitterShareButton } from "react-share";
 import mixpanel from 'mixpanel-browser';
 
-
 function Results({ answersResult }) {
   const max = Math.max(...answersResult);
   const mostAnswered = answersResult.indexOf(max);
