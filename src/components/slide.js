@@ -26,6 +26,10 @@ function Slide({ questions, index }) {
     }
 
     const nextSlide = () => {
+        if (index + 1 == questions.length) { 
+            updateSlide(index + 1)
+            return;
+        }
         setSlideCoreClass('leaving-next')
         setProgress((index + 1) / questions.length * 100);
         

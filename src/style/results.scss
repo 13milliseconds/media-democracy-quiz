@@ -4,11 +4,14 @@
     text-align: left;
     padding: 0;
     flex: 1;
+    overflow: hidden;
     
     .result-wrap{
         background-color: $black;
         color: $white;
         padding: $grid-gutter;
+        transform: translateY(100%);
+        animation: slideIn .5s ease-in-out forwards;
         
         @media (min-width: $breakpoint-tablet) {
             display: flex;
@@ -155,3 +158,15 @@
         }
     }
 }
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+  }
