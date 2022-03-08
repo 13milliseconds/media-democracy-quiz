@@ -23,10 +23,8 @@ function Results({ answersResult }) {
     });
   }
 
-  const trackReport = (platform) => { 
-    mixpanel.track('Shared', {
-      platform: platform
-    });
+  const trackReport = () => { 
+    mixpanel.track('Go To Report');
   }
 
   return (
